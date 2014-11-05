@@ -165,6 +165,8 @@ if ( ! class_exists( 'WPMovieLibrary_Updater' ) ) :
 		public function admin_enqueue_scripts() {
 
 			wp_enqueue_style( WPMOLY_SLUG . '-legacy', WPMOLY_URL . '/assets/css/admin/wpmoly-legacy.css', array(), WPMOLY_VERSION );
+
+			wp_enqueue_script( WPMOLY_SLUG . '-meta-update', WPMOLY_UPDATER_URL . '/assets/js/admin/wpmoly-meta-updater.js', array( WPMOLY_SLUG . '-admin', 'jquery' ), WPMOLY_UPDATER_VERSION, true );
 		}
 
 		/**

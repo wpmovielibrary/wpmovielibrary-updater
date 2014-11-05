@@ -48,8 +48,8 @@
 													<tr id="movie-<?php the_ID(); ?>">
 														<td class="label"><span class="wpmolicon icon-arrow-right"></span></td>
 														<td class="movie-title"><span><?php the_title(); ?></span></td>
-														<td class="queue-movie"><a id="queue-movie-<?php the_ID(); ?>" href="#" onclick="wpmoly.updates.movies.enqueue( <?php the_ID(); ?> ); return false;"><span class="wpmolicon icon-yes"></span></a></td>
-														<td class="update-movie"><a id="update-movie-<?php the_ID(); ?>" href="#" onclick="wpmoly.updates.movies.update( <?php the_ID(); ?> ); return false;"><span class="wpmolicon icon-update"></span></a></td>
+														<td class="queue-movie"><a id="queue-movie-<?php the_ID(); ?>" href="#" onclick="wpmoly.meta_updater.enqueue( <?php the_ID(); ?> ); return false;"><span class="wpmolicon icon-yes"></span></a></td>
+														<td class="update-movie"><a id="update-movie-<?php the_ID(); ?>" href="#" onclick="wpmoly.meta_updater.update( <?php the_ID(); ?> ); return false;"><span class="wpmolicon icon-update"></span></a></td>
 													</tr>
 
 <?php
@@ -94,7 +94,7 @@
 									<div class="main">
 										<p><?php printf( __( 'You have a total of <strong>%s</strong> using a deprecated metadata format; you can use the present page to update your library to new format and access new features.', 'wpmovielibrary' ), sprintf( _n( 'one movie', '%d movies', count( $movies ), 'wpmovielibrary' ), count( $movies ) ) ); ?></p>
 										<p><?php _e( 'You can update all your movies at once, select a few movies manually (<span class="wpmolicon icon-yes"></span> link) or update directly a specific movies (<span class="wpmolicon icon-update"></span> link).', 'wpmovielibrary' ) ?></p>
-										<p style="text-align:center"><a href="#" class="button button-hero button-primary button-wpmoly" id="launch-update" onclick="wpmoly.updates.movies.update_all(); return false;"><span class="wpmolicon icon-update"></span> <?php _e( 'Update movies', 'wpmovielibrary' ) ?></a></p>
+										<p style="text-align:center"><a href="#" class="button button-hero button-primary button-wpmoly" id="launch-update" onclick="wpmoly.meta_updater.update_all(); return false;"><span class="wpmolicon icon-update"></span> <?php _e( 'Update movies', 'wpmovielibrary' ) ?></a></p>
 									</div>
 								</div>
 							</div>
