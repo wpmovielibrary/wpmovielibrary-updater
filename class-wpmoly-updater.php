@@ -49,9 +49,6 @@ if ( ! class_exists( 'WPMovieLibrary_Updater' ) ) :
 
 			add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 
-			// Dynamically add a section. Can be also used to modify sections/fields
-			//add_filter( 'redux/options/wpmoly_settings/sections', array( $this, 'updater_section' ) );
-
 			//
 			add_filter( 'wpmoly_filter_admin_menu', array( $this, 'updater_page_link' ) );
 		}
@@ -234,11 +231,12 @@ if ( ! class_exists( 'WPMovieLibrary_Updater' ) ) :
 		public function updater_page() {
 
 			$args = array(
-				'post_type'    => 'movie',
-				'post_status'  => 'any',
-				'meta_key'     => '_wpmoly_movie_tmdb_id',
-				'meta_value'   => '',
-				'meta_compate' => '!='
+				'post_type'      => 'movie',
+				'post_status'    => 'any',
+				'posts_per_page' => -1,
+				'meta_key'       => '_wpmoly_movie_tmdb_id',
+				'meta_value'     => '',
+				'meta_compate'   => '!='
 			);
 			$movies = new WP_Query( $args );
 
